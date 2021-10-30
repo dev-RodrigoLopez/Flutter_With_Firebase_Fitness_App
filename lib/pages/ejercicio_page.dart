@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fittness_app/models/excercise_model.dart';
+import 'package:fittness_app/pages/ejercicio_gif_page.dart';
 import 'package:flutter/material.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 
@@ -16,7 +17,7 @@ class EjercicioPage extends StatefulWidget {
 
 class _EjercicioPageState extends State<EjercicioPage> {
 
-
+  int seconds =10;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,7 @@ class _EjercicioPageState extends State<EjercicioPage> {
           tag: widget.ejercicio.id,
     
           child: Stack(
+            // alignment: Alignment.center,
             children: [
               CachedNetworkImage(
                 imageUrl: widget.ejercicio.thumbnail,
@@ -72,8 +74,10 @@ class _EjercicioPageState extends State<EjercicioPage> {
                     appearance: CircularSliderAppearance(),
                     onChange: (double value) {
                       
+                      seconds = value.toInt();
+
                     },
-                    initialValue: 30,
+                    initialValue: 10,
                     min: 10,
                     max: 60,
                     innerWidget: (value){
@@ -90,8 +94,51 @@ class _EjercicioPageState extends State<EjercicioPage> {
                     },
                   ),
                 ),
+              ),
+
+              GestureDetector(
+                child: Center(
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: size.width * 0.4,
+                    height: size.height * 0.05,
+                    child: const Text( "Iniciar Ejercicio", style: TextStyle( color: Colors.white, fontSize: 20 ) ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color( 0xFFE83350 ) ,
+                    ),
+                  ),
+                ),
+                onTap: (){
+
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(
+                      builder: ( context ) => EjercicioGifPage(
+                        ejercicio : widget.ejercicio, seconds: seconds,
+                      )
+                    )
+                  );
+
+                },
+              )  ,
+
+              SafeArea(
+                child: GestureDetector(
+                  child: Container(
+                    margin: EdgeInsets.all(5),
+                    width: 50,
+                    height: 50,
+                    decoration: BoxDecoration( 
+                      color: Colors.white24,
+                      borderRadius: BorderRadius.circular(100)
+                     ),
+                    child: Icon( Icons.arrow_back_sharp ),
+                  ),
+                  onTap: () => Navigator.pop(context),
+                ),
               )
-    
+
             ],
           ) 
     

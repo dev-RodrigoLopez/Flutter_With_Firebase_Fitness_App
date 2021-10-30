@@ -46,7 +46,6 @@ class _HomePageState extends State<HomePage> {
                   child: _ItemList(ejercicio: ejercicios[index])
                 ),
                 onTap: (){
-                  print('Puto');
                   Navigator.push( 
                     context, 
                     MaterialPageRoute(

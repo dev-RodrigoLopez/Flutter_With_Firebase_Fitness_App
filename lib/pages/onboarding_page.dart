@@ -14,8 +14,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   final listPagesViewModel = [
 
     PageViewModel(
-      title: "Title of first page",
-      body: "Here you can write the description of the page, to explain someting...",
+      title: "No pain, no gain",
+      body: "Exige al maximo a tu cuerpo para obtener los mejores resultados en menor tiempo...",
       image: Center(
         child: Container(
           width: 250,
@@ -32,8 +32,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     ),
 
     PageViewModel(
-      title: "Title of first page",
-      body: "Here you can write the description of the page, to explain someting...",
+      title: "Supera tus limites",
+      body: "El dolor es temporal, la satisfaccion es para siempre...",
       image: Center(
         child: Container(
           width: 250,
@@ -49,8 +49,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     ),
 
     PageViewModel(
-      title: "Title of first page",
-      body: "Here you can write the description of the page, to explain someting...",
+      title: "Rompe los limites de resistencia",
+      body: "En cada ejercicio se muestra un cronometro que tu nivelas para superar la exigencia de ti mismo...",
       image: Center(
         child: Container(
           width: 250,
